@@ -1,11 +1,112 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html>
 <head>
-  <meta charset="UTF-8" />
-  <title>Meu Formulário Online</title>
+  <meta charset='UTF-8'>
+  <title>Formulário Diabetes</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; max-width: 800px; margin: auto; }
+    h2 { color: #2c3e50; border-bottom: 1px solid #ccc; padding-bottom: 5px; }
+    .item { margin-left: 20px; }
+    .section { margin-bottom: 20px; }
+    button { padding: 10px 20px; font-size: 16px; margin-top: 20px; }
+    pre { background: #f4f4f4; padding: 15px; white-space: pre-wrap; border: 1px solid #ccc; }
+  </style>
 </head>
 <body>
-  <h1>Formulário em Construção</h1>
-  <p>Em breve o formulário estará aqui!</p>
+  <h1>Protocolo: Diabetes e Pé Diabético</h1>
+<div class='section'>
+<h2>AVALIAÇÃO DO PORTADOR DE DIABETES</h2>
+</div>
+<div class='section'>
+<h2>MOTIVO DA CONSULTA</h2>
+</div>
+<div class='section'>
+<h2>COMORBIDADES</h2>
+</div>
+<div class='section'>
+<h2>HISTÓRICO FAMILIAR</h2>
+</div>
+<div class='section'>
+<h2>MEDICAMENTOS</h2>
+</div>
+<div class='section'>
+<h2>SINTOMAS</h2>
+</div>
+<div class='section'>
+<h2>OBSERVAÇÕES</h2>
+</div>
+<div class='section'>
+<h2>nan</h2>
+</div>
+<div class='section'>
+<h2>nan</h2>
+</div>
+<div class='section'>
+<h2>PÉ DIABÉTICO</h2>
+</div>
+<div class='section'>
+<h2>AVALIAÇÃO DERMATOLÓGICA</h2>
+<div class='item'><input type='checkbox' id='pele'><label for='pele'> PELE</label></div>
+<div class='item'><input type='checkbox' id='unhas'><label for='unhas'> UNHAS</label></div>
+</div>
+<div class='section'>
+<h2>AVALIAÇÃO DE DOR NEUROPÁTICA</h2>
+<div class='item'><input type='checkbox' id='localidade'><label for='localidade'> Localidade</label></div>
+<div class='item'><input type='checkbox' id='alteracões'><label for='alteracões'> Alterações</label></div>
+<div class='item'><input type='checkbox' id='característica_da_dor'><label for='característica_da_dor'> Característica da dor</label></div>
+</div>
+<div class='section'>
+<h2>AVALIAÇÃO DE SENSIBILIDADE (10G)</h2>
+<div class='item'><input type='checkbox' id='pé_esquerdo'><label for='pé_esquerdo'> Pé esquerdo</label></div>
+<div class='item'><input type='checkbox' id='pé_direito'><label for='pé_direito'> Pé direito</label></div>
+</div>
+<div class='section'>
+<h2>AVALIAÇÃO ARTERIAL (PULSO)</h2>
+<div class='item'><input type='checkbox' id='pedioso_esquerdo'><label for='pedioso_esquerdo'> Pedioso esquerdo</label></div>
+<div class='item'><input type='checkbox' id='pedioso_direito'><label for='pedioso_direito'> Pedioso direito</label></div>
+<div class='item'><input type='checkbox' id='tibial_esquerdo'><label for='tibial_esquerdo'> Tibial esquerdo</label></div>
+<div class='item'><input type='checkbox' id='tibial_direito'><label for='tibial_direito'> Tibial direito</label></div>
+<div class='item'><input type='checkbox' id='deformidade_óssea'><label for='deformidade_óssea'> DEFORMIDADE ÓSSEA</label></div>
+<div class='item'><input type='checkbox' id='outras_condicões'><label for='outras_condicões'> OUTRAS CONDIÇÕES</label></div>
+</div>
+<div class='section'>
+<h2>OBSERVAÇÕES</h2>
+</div>
+<button onclick='gerarResultado()'>Gerar Resultado</button>
+<pre id='saida'></pre>
+<script>
+function gerarResultado() {
+  let texto = '';
+  texto += '\n**AVALIAÇÃO DO PORTADOR DE DIABETES**\n';
+  texto += '\n**MOTIVO DA CONSULTA**\n';
+  texto += '\n**COMORBIDADES**\n';
+  texto += '\n**HISTÓRICO FAMILIAR**\n';
+  texto += '\n**MEDICAMENTOS**\n';
+  texto += '\n**SINTOMAS**\n';
+  texto += '\n**OBSERVAÇÕES**\n';
+  texto += '\n**nan**\n';
+  texto += '\n**nan**\n';
+  texto += '\n**PÉ DIABÉTICO**\n';
+  texto += '\n**AVALIAÇÃO DERMATOLÓGICA**\n';
+  if (document.getElementById('pele').checked) texto += '- PELE\n';
+  if (document.getElementById('unhas').checked) texto += '- UNHAS\n';
+  texto += '\n**AVALIAÇÃO DE DOR NEUROPÁTICA**\n';
+  if (document.getElementById('localidade').checked) texto += '- Localidade\n';
+  if (document.getElementById('alteracões').checked) texto += '- Alterações\n';
+  if (document.getElementById('característica_da_dor').checked) texto += '- Característica da dor\n';
+  texto += '\n**AVALIAÇÃO DE SENSIBILIDADE (10G)**\n';
+  if (document.getElementById('pé_esquerdo').checked) texto += '- Pé esquerdo\n';
+  if (document.getElementById('pé_direito').checked) texto += '- Pé direito\n';
+  texto += '\n**AVALIAÇÃO ARTERIAL (PULSO)**\n';
+  if (document.getElementById('pedioso_esquerdo').checked) texto += '- Pedioso esquerdo\n';
+  if (document.getElementById('pedioso_direito').checked) texto += '- Pedioso direito\n';
+  if (document.getElementById('tibial_esquerdo').checked) texto += '- Tibial esquerdo\n';
+  if (document.getElementById('tibial_direito').checked) texto += '- Tibial direito\n';
+  if (document.getElementById('deformidade_óssea').checked) texto += '- DEFORMIDADE ÓSSEA\n';
+  if (document.getElementById('outras_condicões').checked) texto += '- OUTRAS CONDIÇÕES\n';
+  texto += '\n**OBSERVAÇÕES**\n';
+  document.getElementById('saida').innerText = texto.trim();
+}
+</script>
 </body>
 </html>
